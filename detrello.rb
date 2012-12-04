@@ -57,4 +57,4 @@ opts = Trollop::options do
 end
 
 detrello = Detrello.new(opts[:config], opts[:output])
-puts detrello.deboard(opts[:board])
+detrello.deboard(opts[:board])
