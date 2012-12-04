@@ -6,8 +6,9 @@ class Detrello
 	include Trello
 	include Trello::Authorization
 
-	def initialize(config)
+	def initialize(config, output)
 		@config = YAML.load_file(config)
+		@output = File.open(output,'w+')
 
 		Trello::Authorization.const_set :AuthPolicy, OAuthPolicy
 		OAuthPolicy.consumer_credential = OAuthCredential.new @config["key"], @config["secret"]
@@ -25,6 +26,9 @@ class Detrello
 			puts 'Board ' + board + ' doesn\'t actually have any lists.'
 		end
 
+		@output.puts '<h1>' + board.name + "</h1>"
+		@output.puts
+
 		board.lists.each do |list|
 			delist(list)
 		end
@@ -32,22 +36,25 @@ class Detrello
 	end
 
 	def delist(list)
-		puts list.name
+		@output.puts '<h2>' + list.name + "</h2>"
+		@output.puts
 		list.cards.each do |card|
 			decard(card)
 		end
+		@output.puts
 	end
 
 	def decard(card)
-		puts card.name
+		@output.puts card.name
 	end
 
 end
 
 opts = Trollop::options do
 	opt :config, "Config file name", :type => :string, :required => true
-	opt :board, "Board name", :type => :string, :required => true
+	opt :output, "Output file", :type => :string, :required => true
+	opt :board, "Board id", :type => :string, :required => true
 end
 
-detrello = Detrello.new(opts[:config])
+detrello = Detrello.new(opts[:config], opts[:output])
 puts detrello.deboard(opts[:board])
