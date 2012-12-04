@@ -32,10 +32,14 @@ class Detrello
 	end
 
 	def delist(list)
-		puts list.inspect
+		puts list.name
+		list.cards.each do |card|
+			decard(card)
+		end
 	end
 
 	def decard(card)
+		puts card.name
 	end
 
 end
