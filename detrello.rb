@@ -24,6 +24,7 @@ class Detrello
 		end
 		unless board.has_lists?
 			puts 'Board ' + board + ' doesn\'t actually have any lists.'
+			abort
 		end
 
 		@output.puts '<h1>' + board.name + "</h1>"
