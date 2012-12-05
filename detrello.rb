@@ -46,7 +46,7 @@ class Detrello
 	end
 
 	def decard(card)
-		@output.puts card.name
+		@output.puts card.name + "<br>"
 	end
 
 end
