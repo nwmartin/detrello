@@ -1,3 +1,6 @@
 *.sublime-*
 secret.yml
 output
+db/*.sqlite3
+log/*.log
+tmp/**/*

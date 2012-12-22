@@ -39,3 +39,4 @@ gem 'jquery-rails'
 
 gem 'ruby-trello'
 gem 'trollop'
+gem 'less-rails-bootstrap'
