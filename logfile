@@ -1,0 +1,10 @@
+LOG:  database system was shut down at 2012-12-22 16:19:48 EST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "nickm" does not exist
+FATAL:  database "localhost" does not exist
+FATAL:  database "detrello" does not exist
+FATAL:  database "/usr/local/detrello" does not exist
+FATAL:  database "nickm" does not exist
+ERROR:  unrecognized configuration parameter "tables"
+STATEMENT:  show tables;
