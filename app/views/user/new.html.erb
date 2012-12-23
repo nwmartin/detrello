@@ -1,0 +1,13 @@
+<h1>This is a place for lazy people to sign up.</h1>
+<%= form_tag('/user/create', :method => 'post') do |f| %>
+	<%= label_tag(:q, "Username:") %>
+  	<%= text_field_tag(:q) %>
+  	<%= label_tag(:q, "Password:") %>
+  	<%= text_field_tag(:q) %>
+  	<%= label_tag(:q, "Confirm:") %>
+  	<%= text_field_tag(:q) %>
+  	<%= label_tag(:q, "Token:") %>
+  	<%= text_field_tag(:q) %>
+  	<br />
+  	<%= submit_tag("I am a lazy person and want to use Detrello", {:class => 'btn btn-primary'}) %>
+<% end %>

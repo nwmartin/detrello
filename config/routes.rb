@@ -2,6 +2,8 @@ Detrello::Application.routes.draw do
 
   match '/' => 'home#index'
 
+  resources :user
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
