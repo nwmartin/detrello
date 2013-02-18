@@ -1,13 +1,20 @@
 require 'yaml'
 require 'trollop'
 require 'trello'
+require 'pry'
 
 class Detrello
 	include Trello
 	include Trello::Authorization
 
 	def initialize(config, output)
-		@config = YAML.load_file(config)
+		begin
+			@config = YAML.load_file(config)
+		rescue Exception => e
+			puts 'Config file does not exist!'
+			puts e.message
+			abort
+		end
 		@output = File.open(output,'w+')
 
 		Trello::Authorization.const_set :AuthPolicy, OAuthPolicy
@@ -51,8 +58,8 @@ class Detrello
 end
 
 opts = Trollop::options do
-	opt :config, "Config file name", :type => :string, :required => true
-	opt :output, "Output file", :type => :string, :required => true
+	opt :config, "Config file name", :type => :string, :default => 'secret.yml'
+	opt :output, "Output file", :type => :string, :default => 'output.html'
 	opt :board, "Board id", :type => :string, :required => true
 end
 
