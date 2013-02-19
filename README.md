@@ -23,6 +23,8 @@ You can snag the board id from the board url. It's the guid at the end.
 Optional Style Switches
 -----------------------
 
---board-tag : specify a html header tag to size the Board name header
---list-tag : specify a html header tag to size the List name header(s)
---bullet-list : use to output cards in a bulleted list
+--board-tag : specify a html header tag to change the size the Board name header
+
+--list-tag : specify a html header tag to change the size the List name header(s)
+
+--bullet-list : use to add bullets to card list output
