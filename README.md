@@ -5,6 +5,15 @@ Gets content out of Trello. It's specifically designed to dump it into the Confl
 what I deal with weekly. If anyone actually needs this expanded on let me know and I can genericize it. This will work against
 private boards as we're using ruby-trello's oauth provider.
 
+Setup on Windows
+-----
+
+	If Ruby is not installed: install Ruby (http://rubyinstaller.org/downloads/)(tested with Ruby 1.9.3-p545)
+		Confirm that Ruby is in your PATH
+	If Bundle is not installed: install bundler (http://bundler.io/)
+		Bundler is a gem used to track all the specific versions of a gems associated with a project
+	Continue with the rest of setup
+
 Setup
 -----
 
